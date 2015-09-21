@@ -1,6 +1,8 @@
 opencore-amr-iOS
 ================
 
+新增 bitcode 支持.
+
 iOS port of opencore-amr
 
 Refer to README which is from original package.
