@@ -27,8 +27,8 @@ for arch in $ARCHS; do
 		echo "Building opencore-amr for iPhoneOS $arch ****************"
 		PATH=`xcodebuild -version -sdk iphoneos PlatformPath`"/Developer/usr/bin:$PATH" \
 		SDK=`xcodebuild -version -sdk iphoneos Path` \
-		CXX="xcrun --sdk iphoneos clang++ -arch $arch $IOSMV -fembed-bitcode-marker --sysroot=$SDK -isystem $SDK/usr/include" \
-		LDFLAGS="-Wl,-syslibroot,$SDK" \
+		CFLAGS="-isysroot $SDKROOT -arch $arch $IOSV -isystem $SDKROOT/usr/include -fembed-bitcode" \
+		CXX="xcrun --sdk iphoneos clang++ -arch $arch $IOSMV -fembed-bitcode --sysroot=$SDK -isystem $SDK/usr/include" \
 		./configure \
 		--host=arm-apple-darwin \
 		--prefix=$DEST \
